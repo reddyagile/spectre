@@ -71,6 +71,12 @@ function docs_js() {
     .pipe(gulp.dest('docs/dist/js'));
 }
 
+// New task to copy main themes to docs/dist/themes
+function copy_themes_to_docs_dist() {
+  return gulp.src(['dist/*.css', 'dist/*.min.css', '!dist/*-exp.*', '!dist/*-icons.*']) // Get theme CSS files, exclude experimental and icons
+    .pipe(gulp.dest('docs/dist/themes')); // Copy them to docs/dist/themes
+}
+
 function watch() {
   // Watch for main SCSS changes (excluding docs SCSS)
   gulp.watch(['./src/**/*.scss', '!./docs/src/scss/**/*.scss'], build);
@@ -84,5 +90,5 @@ function watch() {
 
 exports.watch = watch;
 exports.build = build;
-exports.docs = parallel(docs_pug, docs_css, docs_js);
+exports.docs = parallel(docs_pug, docs_css, docs_js, copy_themes_to_docs_dist);
 exports.default = build;
