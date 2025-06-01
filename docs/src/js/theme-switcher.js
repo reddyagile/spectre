@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('spectre-theme', themeName);
     console.log(`Applied theme: ${themeName}, path: ${cssPath}`);
   }
+  }
 
   if (themeSwitcher) {
     themeSwitcher.addEventListener('change', function () {
