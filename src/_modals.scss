@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // Modals
 .modal {
   align-items: center;
@@ -19,7 +21,7 @@
     z-index: $zindex-4;
 
     .modal-overlay {
-      background: rgba($bg-color, .75);
+      background: color.change($bg-color, $alpha: .75);
       bottom: 0;
       cursor: default;
       display: block;

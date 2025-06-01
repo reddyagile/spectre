@@ -1,9 +1,12 @@
+@use "sass:color";
+
 // Background color utility mixin
 @mixin bg-color-variant($name: ".bg-primary", $color: $primary-color) {
   #{$name} {
     background: $color !important;
 
-    @if (lightness($color) < 60) {
+    // For OKLCH, lightness is a channel from 0 to 1. Multiply by 100 for comparison with a unitless number (representing percentage).
+    @if (color.channel($color, 'lightness') * 100 < 60) {
       color: $light-color;
     }
   }
@@ -18,10 +21,10 @@
   a#{$name} {
     &:focus,
     &:hover {
-      color: darken($color, 5%);
+      color: color.adjust($color, $lightness: -5%);
     }
     &:visited {
-      color: lighten($color, 5%);
+      color: color.adjust($color, $lightness: 5%);
     }
   }
 }
