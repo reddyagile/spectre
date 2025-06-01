@@ -66,12 +66,23 @@ function docs_pug() {
     .pipe(gulp.dest('./docs/'));
 }
 
+function docs_js() {
+  return gulp.src('docs/src/js/**/*.js')
+    .pipe(gulp.dest('docs/dist/js'));
+}
+
 function watch() {
-  gulp.watch('./**/*.scss', parallel(build, docs_css));
-  gulp.watch('./**/*.pug', docs_pug);
+  // Watch for main SCSS changes (excluding docs SCSS)
+  gulp.watch(['./src/**/*.scss', '!./docs/src/scss/**/*.scss'], build);
+  // Watch for docs SCSS changes
+  gulp.watch('./docs/src/scss/**/*.scss', docs_css);
+  // Watch for docs Pug changes
+  gulp.watch('./docs/src/pug/**/*.pug', docs_pug);
+  // Watch for docs JS changes
+  gulp.watch('./docs/src/js/**/*.js', docs_js);
 }
 
 exports.watch = watch;
 exports.build = build;
-exports.docs = parallel(docs_pug, docs_css);
+exports.docs = parallel(docs_pug, docs_css, docs_js);
 exports.default = build;
