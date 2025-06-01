@@ -224,20 +224,29 @@
             <p><a class="btn btn-primary" href="https://github.com/picturepan2/spectre/" target="_blank">Sass Source Code</a></p>
             <p>If you are looking for Less version of Spectre.css, please switch to <code>Less</code> branch.</p>
             <p><a class="btn" href="https://github.com/picturepan2/spectre/tree/less" target="_blank">Less Branch</a></p>
-            <h4 class="s-subtitle" id="compiling">Compiling CSS<a class="anchor" href="#compiling" aria-hidden="true">#</a></h4>
-            <p>Spectre uses <a href="http://gulpjs.com/" target="_blank">Gulp</a> for compiling CSS. Firstly you need to <a href="https://www.npmjs.com/get-npm" target="_blank">install NPM</a>, which is used to manage Gulp and other dependencies.</p>
-            <p>Then, you can build the CSS file from the command line:</p>
+            <h4 class="s-subtitle" id="compiling">Compiling Assets<a class="anchor" href="#compiling" aria-hidden="true">#</a></h4>
+            <p>Spectre.css now uses <a href="https://webpack.js.org/" target="_blank">Webpack</a> for compiling SCSS to CSS and managing JavaScript assets. Gulp is still used for compiling Pug templates to HTML for the documentation site.</p>
+            <p>Firstly, you need to <a href="https://www.npmjs.com/get-npm" target="_blank">install NPM</a>, which is used to manage Webpack, Gulp, and other dependencies.</p>
+            <p>Then, you can build all assets from the command line:</p>
             <ol>
               <li>Navigate to the root directory of Spectre.</li>
-              <li>Run <code>npm install</code>. NPM will install all dev dependencies as listed in package.json.</li>
-              <li>When completed, run <code>gulp build</code> task to compile Sass to CSS and minify files.</li>
-              <li>You can find compiled CSS files in <code>/dist</code> directory.</li>
+              <li>Run <code>npm install</code>. NPM will install all dev dependencies as listed in <code>package.json</code>.</li>
+              <li>When completed, run <code>npm run build</code>. This command will:
+                <ul>
+                  <li>Clean previous builds from `dist/` and `docs/dist/`.</li>
+                  <li>Run Webpack to compile theme SCSS and documentation SCSS/JS.</li>
+                  <li>Run a Gulp task to compile Pug templates for the documentation.</li>
+                </ul>
+              </li>
+              <li>You can find compiled library CSS themes in the <code>dist/</code> directory, and compiled documentation assets (CSS, JS, themes) in the <code>docs/dist/</code> directory. Documentation HTML files are generated in the <code>docs/</code> directory.</li>
             </ol>
-            <p>All available Gulp tasks:</p>
+            <p>Key NPM scripts available (see <code>package.json</code> for all scripts):</p>
             <ul>
-              <li><code>gulp build</code> - compile Sass to CSS and minify files (default)</li>
-              <li><code>gulp docs</code> - compile Docs related files</li>
-              <li><code>gulp watch</code> - watch file changes and re-compile CSS files</li>
+              <li><code>npm run build</code> - Cleans and builds all assets (Webpack for CSS/JS, Gulp for Pug).</li>
+              <li><code>npm run watch</code> - Starts Webpack in watch mode for recompiling CSS/JS on changes. (For Pug, run <code>gulp watch_pug</code> separately).</li>
+              <li><code>npm run build:webpack</code> - Runs only the Webpack build for all CSS/JS assets (themes and docs).</li>
+              <li><code>npm run watch:webpack</code> - Runs only the Webpack watch for CSS/JS assets.</li>
+              <li><code>npm run build:pug-docs</code> - Runs only the Gulp Pug compilation for documentation HTML.</li>
             </ul>
             <h4 class="s-subtitle" id="importing">Importing Sass<a class="anchor" href="#importing" aria-hidden="true">#</a></h4>
             <p>It is recommended to customize Spectre by importing Sass source files to your projects. In this way, you can keep Spectre up to date without conflicts, since Spectre code and your custom code are separate.</p>

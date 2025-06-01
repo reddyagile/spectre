@@ -25,40 +25,63 @@ block docs-content
     p
       a.btn(href='https://github.com/picturepan2/spectre/tree/less', target='_blank') Less Branch
 
-    +docs-subheading('compiling', 'Compiling CSS')
+    +docs-subheading('compiling', 'Compiling Assets')
 
     p
-      | Spectre uses 
-      a(href='http://gulpjs.com/', target='_blank') Gulp
-      |  for compiling CSS. Firstly you need to 
+      | Spectre.css now uses
+      a(href='https://webpack.js.org/', target='_blank') Webpack
+      |  for compiling SCSS to CSS and managing JavaScript assets. Gulp is still used for compiling Pug templates to HTML for the documentation site.
+    p
+      | Firstly, you need to
       a(href='https://www.npmjs.com/get-npm', target='_blank') install NPM
-      | , which is used to manage Gulp and other dependencies.
-    p Then, you can build the CSS file from the command line:
+      | , which is used to manage Webpack, Gulp, and other dependencies.
+    p Then, you can build all assets from the command line:
     ol
       li Navigate to the root directory of Spectre.
       li
         | Run 
         code npm install
-        | . NPM will install all dev dependencies as listed in package.json.
+        | . NPM will install all dev dependencies as listed in
+        code package.json
+        | .
       li
         | When completed, run 
-        code gulp build
-        |  task to compile Sass to CSS and minify files.
+        code npm run build
+        | . This command will:
+        ul
+          li Clean previous builds from `dist/` and `docs/dist/`.
+          li Run Webpack to compile theme SCSS and documentation SCSS/JS.
+          li Run a Gulp task to compile Pug templates for the documentation.
       li
-        | You can find compiled CSS files in 
-        code /dist
+        | You can find compiled library CSS themes in the
+        code dist/
+        |  directory, and compiled documentation assets (CSS, JS, themes) in the
+        code docs/dist/
+        |  directory. Documentation HTML files are generated in the
+        code docs/
         |  directory.
-    p All available Gulp tasks:
+
+    p Key NPM scripts available (see
+      code package.json
+      |  for all scripts):
     ul
       li
-        code gulp build
-        |  - compile Sass to CSS and minify files (default)
+        code npm run build
+        |  - Cleans and builds all assets (Webpack for CSS/JS, Gulp for Pug).
       li
-        code gulp docs
-        |  - compile Docs related files
+        code npm run watch
+        |  - Starts Webpack in watch mode for recompiling CSS/JS on changes. (For Pug, run
+        code gulp watch_pug
+        |  separately).
       li
-        code gulp watch
-        |  - watch file changes and re-compile CSS files
+        code npm run build:webpack
+        |  - Runs only the Webpack build for all CSS/JS assets (themes and docs).
+      li
+        code npm run watch:webpack
+        |  - Runs only the Webpack watch for CSS/JS assets.
+      li
+        code npm run build:pug-docs
+        |  - Runs only the Gulp Pug compilation for documentation HTML.
 
     +docs-subheading('importing', 'Importing Sass')
     p

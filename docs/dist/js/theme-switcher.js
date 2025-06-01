@@ -1,3 +1,4 @@
+/******/ (function() { // webpackBootstrap
 document.addEventListener('DOMContentLoaded', function () {
   const themeStylesheet = document.getElementById('theme-stylesheet');
   const themeSwitcher = document.getElementById('theme-switcher');
@@ -49,3 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // If themeSwitcher exists and IS 'spectre', and no storedTheme, we do nothing, respecting the HTML default.
   }
 });
+
+/******/ })()
+;

@@ -24,16 +24,25 @@
     "url": "https://github.com/picturepan2/spectre/issues"
   },
   "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "autoprefixer": "^10.4.21",
+    "babel-loader": "^10.0.0",
+    "copy-webpack-plugin": "^13.0.0",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.2",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-csscomb": "^3.1.0",
     "gulp-pug": "^4.0.1",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^5.1.0",
-    "sass": "^1.77.4",
     "jstransformer-highlight": "^2.0.0",
-    "jstransformer-markdown-it": "^2.1.0"
+    "jstransformer-markdown-it": "^2.1.0",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss-loader": "^8.1.1",
+    "pug-loader": "^2.4.0",
+    "sass": "^1.89.1",
+    "sass-loader": "^16.0.5",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1"
   },
   "browserslist": [
     "last 4 Chrome versions",
@@ -42,5 +51,15 @@
     "last 4 Safari versions",
     "last 4 Opera versions",
     "Explorer >= 10"
-  ]
+  ],
+  "scripts": {
+    "clean": "rm -rf dist/ docs/dist/",
+    "build:themes": "webpack --mode production --config webpack.config.js --config-name themeConfig",
+    "build:docs-assets": "webpack --mode production --config webpack.config.js --config-name docsConfig",
+    "build:pug-docs": "gulp docs_pug",
+    "build": "npm run clean && npm run build:themes && npm run build:docs-assets && npm run build:pug-docs",
+    "watch:webpack": "webpack --mode development --watch --config webpack.config.js",
+    "watch:pug": "gulp watch_pug",
+    "comment": "Old Gulp watch was: gulp watch"
+  }
 }

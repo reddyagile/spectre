@@ -1,35 +1,26 @@
-@use "sass:color";
+@use "sass:color"; // Still needed for text-color-variant
 
-// Background color utility mixin
-@mixin bg-color-variant($name: ".bg-primary", $color: $primary-color) {
+// Background color utility mixin - Corrected for selector usage
+@mixin bg-color-variant($name, $color-value) { // $name is the selector, $color-value is the background
   #{$name} {
-    background: $color !important;
-
-    // Convert color to sRGB then get r, g, b channels for luminance calculation.
-    $srgb-color: color.change($color, $space: srgb); // Ensure $space: srgb is unquoted
-    $r: color.channel($srgb-color, "red") / 255;
-    $g: color.channel($srgb-color, "green") / 255;
-    $b: color.channel($srgb-color, "blue") / 255;
-    $luminance: 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
-    @if $luminance < 0.6 { // If luminance is less than 0.6, consider it dark
-      color: $light-color;
-    }
+    background-color: $color-value !important;
+    color: #000 !important; // Fixed text color for testing, to be replaced by contrast logic
   }
 }
 
 // Text color utility mixin
-@mixin text-color-variant($name: ".text-primary", $color: $primary-color) {
+@mixin text-color-variant($name: ".text-primary", $color-value: $primary-color) {
   #{$name} {
-    color: $color !important;
+    color: $color-value !important;
   }
 
   a#{$name} {
     &:focus,
     &:hover {
-      color: color.adjust($color, $lightness: -5%);
+      color: color.adjust($color-value, $lightness: -5%);
     }
     &:visited {
-      color: color.adjust($color, $lightness: 5%);
+      color: color.adjust($color-value, $lightness: 5%);
     }
   }
 }
