@@ -3022,7 +3022,7 @@ a.text-light:hover {
   color: rgb(242.25, 242.25, 242.25);
 }
 a.text-light:visited {
-  color: white;
+  color: hsl(0, 0%, 105%);
 }
 
 .text-dark {
@@ -3098,7 +3098,6 @@ a.text-error:visited {
 
 .bg-warning {
   background: #ffb700 !important;
-  color: #fff;
 }
 
 .bg-error {

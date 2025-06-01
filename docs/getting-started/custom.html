@@ -253,6 +253,21 @@
 <span class="hljs-keyword">@import</span> <span class="hljs-string">"node_modules/spectre.css/src/buttons"</span>;
 <span class="hljs-keyword">@import</span> <span class="hljs-string">"node_modules/spectre.css/src/forms"</span>;
 </code></pre>
+            <h4 class="s-subtitle" id="theming">Using Themes<a class="anchor" href="#theming" aria-hidden="true">#</a></h4>
+            <p>Spectre.css now supports multiple themes to change its appearance. The build process generates separate CSS files for each supported theme.</p>
+            <p>Currently available themes are:</p>
+            <ul>
+              <li><strong>Spectre (Default):</strong> The original Spectre.css look and feel. CSS file: <code>dist/spectre.css</code></li>
+              <li><strong>Fluent:</strong> A theme inspired by Microsoft's Fluent UI. CSS file: <code>dist/fluent.css</code></li>
+              <li><strong>ShadCN:</strong> A theme inspired by the aesthetics of ShadCN UI. CSS file: <code>dist/shadcn.css</code></li>
+            </ul>
+            <p>To use a specific theme, simply include the corresponding CSS file in your HTML. For example:</p>
+            <pre class="code" data-lang="HTML"><code><span class="hljs-comment">&lt;!-- To use the Fluent theme --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"path/to/your/css/fluent.min.css"</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Or, to use the ShadCN theme --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"path/to/your/css/shadcn.min.css"</span>&gt;</span></code></pre>
+            <p>If you are customizing themes or creating new ones, the theme-specific variables are located in <code>src/themes/THEME_NAME/_variables.scss</code>(e.g., <code>src/themes/fluent/_variables.scss</code>). The build process (see 'Compiling CSS') will generate all themed CSS files in the <code>dist/</code>directory.</p>
             <h4 class="s-subtitle" id="folders">Folder structure<a class="anchor" href="#folders" aria-hidden="true">#</a></h4>
             <pre class="code"><code>spectre/
 ├── <span class="hljs-built_in">dist</span>/                           <span class="hljs-comment">// Build folder</span>

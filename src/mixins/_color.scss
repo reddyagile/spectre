@@ -5,8 +5,13 @@
   #{$name} {
     background: $color !important;
 
-    // For OKLCH, lightness is a channel from 0 to 1. Multiply by 100 for comparison with a unitless number (representing percentage).
-    @if (color.channel($color, 'lightness') * 100 < 60) {
+    // Convert color to sRGB then get r, g, b channels for luminance calculation.
+    $srgb-color: color.change($color, $space: srgb); // Ensure $space: srgb is unquoted
+    $r: color.channel($srgb-color, "red") / 255;
+    $g: color.channel($srgb-color, "green") / 255;
+    $b: color.channel($srgb-color, "blue") / 255;
+    $luminance: 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
+    @if $luminance < 0.6 { // If luminance is less than 0.6, consider it dark
       color: $light-color;
     }
   }

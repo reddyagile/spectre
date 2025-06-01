@@ -106,6 +106,35 @@ block docs-content
           @import "node_modules/spectre.css/src/buttons";
           @import "node_modules/spectre.css/src/forms";
 
+    +docs-subheading('theming', 'Using Themes')
+
+    p
+      | Spectre.css now supports multiple themes to change its appearance. The build process generates separate CSS files for each supported theme.
+    p
+      | Currently available themes are:
+    ul
+      li #[strong Spectre (Default):] The original Spectre.css look and feel. CSS file: #[code dist/spectre.css]
+      li #[strong Fluent:] A theme inspired by Microsoft's Fluent UI. CSS file: #[code dist/fluent.css]
+      li #[strong ShadCN:] A theme inspired by the aesthetics of ShadCN UI. CSS file: #[code dist/shadcn.css]
+    p
+      | To use a specific theme, simply include the corresponding CSS file in your HTML. For example:
+    pre.code(data-lang='HTML')
+      code
+        :highlight(lang="html")
+          <!-- To use the Fluent theme -->
+          <link rel="stylesheet" href="path/to/your/css/fluent.min.css">
+
+          <!-- Or, to use the ShadCN theme -->
+          <link rel="stylesheet" href="path/to/your/css/shadcn.min.css">
+    p
+      | If you are customizing themes or creating new ones, the theme-specific variables are located in
+      code src/themes/THEME_NAME/_variables.scss
+      | (e.g.,
+      code src/themes/fluent/_variables.scss
+      | ). The build process (see 'Compiling CSS') will generate all themed CSS files in the
+      code dist/
+      | directory.
+
     +docs-subheading('folders', 'Folder structure')
 
     //- folder structure

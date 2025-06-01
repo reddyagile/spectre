@@ -507,7 +507,7 @@ abbr[title] {
 
 kbd {
   background: oklch(14.5% 0 0deg);
-  border-radius: 1rem;
+  border-radius: .5rem;
   color: oklch(100% 0 0deg);
   font-size: .6rem;
   line-height: 1.25;
@@ -517,7 +517,7 @@ kbd {
 mark {
   background: oklch(95% .1 90deg);
   border-bottom: .05rem solid oklch(80% .1 90deg);
-  border-radius: 1rem;
+  border-radius: .5rem;
   color: oklch(14.5% 0 0deg);
   padding: .05rem .1rem 0;
 }
@@ -662,7 +662,7 @@ html:lang(ko),
   appearance: none;
   background: oklch(100% 0 0deg);
   border: .05rem solid oklch(20.5% 0 0deg);
-  border-radius: 1rem;
+  border-radius: .5rem;
   color: oklch(20.5% 0 0deg);
   cursor: pointer;
   display: inline-block;
@@ -907,7 +907,7 @@ legend {
   background: oklch(100% 0 0deg);
   background-image: none;
   border: .05rem solid oklch(82.2% 0 0deg);
-  border-radius: 1rem;
+  border-radius: .5rem;
   color: oklch(14.5% 0 0deg);
   display: block;
   font-size: .7rem;
@@ -977,7 +977,7 @@ textarea.form-input.input-sm {
   appearance: none;
   background: oklch(100% 0 0deg);
   border: .05rem solid oklch(82.2% 0 0deg);
-  border-radius: 1rem;
+  border-radius: .5rem;
   color: inherit;
   font-size: .7rem;
   height: 1.8rem;
@@ -1115,7 +1115,7 @@ textarea.form-input.input-sm {
 }
 
 .form-checkbox .form-icon {
-  border-radius: 1rem;
+  border-radius: .5rem;
 }
 .form-checkbox input:checked + .form-icon::before {
   background-clip: padding-box;
@@ -1201,7 +1201,7 @@ textarea.form-input.input-sm {
 .input-group .input-group-addon {
   background: oklch(97% 0 0deg);
   border: .05rem solid oklch(82.2% 0 0deg);
-  border-radius: 1rem;
+  border-radius: .5rem;
   line-height: 1.2rem;
   padding: .25rem .4rem;
   white-space: nowrap;
@@ -1382,7 +1382,7 @@ input.disabled + .form-icon {
 
 .label {
   background: oklch(94% 0 0deg);
-  border-radius: 1rem;
+  border-radius: .5rem;
   color: oklch(19.5% 0 0deg);
   display: inline-block;
   line-height: 1.25;
@@ -1416,7 +1416,7 @@ input.disabled + .form-icon {
 
 code {
   background: oklch(100% .245 27.325deg);
-  border-radius: 1rem;
+  border-radius: .5rem;
   color: oklch(57.7% .245 27.325deg);
   font-size: 85%;
   line-height: 1.25;
@@ -1424,7 +1424,7 @@ code {
 }
 
 .code {
-  border-radius: 1rem;
+  border-radius: .5rem;
   color: oklch(14.5% 0 0deg);
   position: relative;
 }
@@ -2219,7 +2219,7 @@ summary.accordion-header::-webkit-details-marker {
 
 .bar {
   background: oklch(94% 0 0deg);
-  border-radius: 1rem;
+  border-radius: .5rem;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: nowrap;
@@ -2244,12 +2244,12 @@ summary.accordion-header::-webkit-details-marker {
   width: 0;
 }
 .bar .bar-item:first-child {
-  border-bottom-left-radius: 1rem;
-  border-top-left-radius: 1rem;
+  border-bottom-left-radius: .5rem;
+  border-top-left-radius: .5rem;
 }
 .bar .bar-item:last-child {
-  border-bottom-right-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-bottom-right-radius: .5rem;
+  border-top-right-radius: .5rem;
   -ms-flex-negative: 1;
   flex-shrink: 1;
 }
@@ -2287,7 +2287,7 @@ summary.accordion-header::-webkit-details-marker {
 .card {
   background: oklch(100% 0 0deg);
   border: .05rem solid oklch(92.2% 0 0deg);
-  border-radius: 1rem;
+  border-radius: .5rem;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
@@ -2315,12 +2315,12 @@ summary.accordion-header::-webkit-details-marker {
   padding-top: 0;
 }
 .card .card-image:first-child img {
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
 }
 .card .card-image:last-child img {
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
 }
 
 .chip {
@@ -2378,13 +2378,13 @@ summary.accordion-header::-webkit-details-marker {
   display: block;
 }
 .dropdown .btn-group .dropdown-toggle:nth-last-child(2) {
-  border-bottom-right-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-bottom-right-radius: .5rem;
+  border-top-right-radius: .5rem;
 }
 
 .empty {
   background: oklch(97% 0 0deg);
-  border-radius: 1rem;
+  border-radius: .5rem;
   color: oklch(67% 0 0deg);
   padding: 3.2rem 1.6rem;
   text-align: center;
@@ -2402,7 +2402,7 @@ summary.accordion-header::-webkit-details-marker {
 
 .menu {
   background: oklch(100% 0 0deg);
-  border-radius: 1rem;
+  border-radius: .5rem;
   box-shadow: 0 .05rem .2rem oklch(14.5% 0 0deg / .3);
   list-style: none;
   margin: 0;
@@ -2422,7 +2422,7 @@ summary.accordion-header::-webkit-details-marker {
   text-decoration: none;
 }
 .menu .menu-item > a {
-  border-radius: 1rem;
+  border-radius: .5rem;
   color: inherit;
   display: block;
   margin: 0 -.4rem;
@@ -2513,7 +2513,7 @@ summary.accordion-header::-webkit-details-marker {
 
 .modal-container {
   background: oklch(100% 0 0deg);
-  border-radius: 1rem;
+  border-radius: .5rem;
   box-shadow: 0 .2rem .5rem oklch(14.5% 0 0deg / .3);
   display: -ms-flexbox;
   display: flex;
@@ -2586,7 +2586,7 @@ summary.accordion-header::-webkit-details-marker {
   padding: .2rem .2rem;
 }
 .pagination .page-item a {
-  border-radius: 1rem;
+  border-radius: .5rem;
   display: inline-block;
   padding: .2rem .4rem;
   text-decoration: none;
@@ -2622,7 +2622,7 @@ summary.accordion-header::-webkit-details-marker {
 
 .panel {
   border: .05rem solid oklch(92.2% 0 0deg);
-  border-radius: 1rem;
+  border-radius: .5rem;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
@@ -2858,7 +2858,7 @@ summary.accordion-header::-webkit-details-marker {
   background: oklch(14.5% 0 0deg / .95);
   border: .05rem solid oklch(14.5% 0 0deg);
   border-color: oklch(14.5% 0 0deg);
-  border-radius: 1rem;
+  border-radius: .5rem;
   color: oklch(100% 0 0deg);
   display: block;
   padding: .4rem;
@@ -2902,7 +2902,7 @@ summary.accordion-header::-webkit-details-marker {
 }
 .tooltip::after {
   background: oklch(14.5% 0 0deg / .95);
-  border-radius: 1rem;
+  border-radius: .5rem;
   bottom: 100%;
   color: oklch(100% 0 0deg);
   content: attr(data-tooltip);
@@ -3490,7 +3490,7 @@ a.text-error:visited {
 }
 
 .s-rounded {
-  border-radius: 1rem;
+  border-radius: .5rem;
 }
 
 .s-circle {

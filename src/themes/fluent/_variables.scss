@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // Fluent Theme Variables
 
 // Core variables
@@ -8,12 +10,12 @@ $rtl: false !default;
 
 // Core colors - Fluent UI Palette
 $primary-color: #0078D4 !default; // Fluent Blue
-$primary-color-dark: darken($primary-color, 10%) !default; // Darker shade for hover/active
-$primary-color-light: lighten($primary-color, 10%) !default; // Lighter shade
+$primary-color-dark: color.adjust($primary-color, $lightness: -10%) !default; // Darker shade for hover/active
+$primary-color-light: color.adjust($primary-color, $lightness: 10%) !default; // Lighter shade
 
 $secondary-color: #EFF6FC !default; // Light blue, often used for backgrounds or secondary elements
-$secondary-color-dark: darken($secondary-color, 5%) !default;
-$secondary-color-light: lighten($secondary-color, 2%) !default; // Be cautious with lightening already light colors
+$secondary-color-dark: color.adjust($secondary-color, $lightness: -5%) !default;
+$secondary-color-light: color.adjust($secondary-color, $lightness: 2%) !default; // Be cautious with lightening already light colors
 
 // Gray colors - Fluent Neutral Palette
 $dark-color: #201F1E !default;   // Near black for text (e.g., NeutralBlack)
@@ -24,12 +26,12 @@ $gray-color: #A19F9D !default;       // Mid gray for borders, disabled states (e
 $gray-color-light: #C8C6C4 !default; // Lighter gray (e.g., NeutralQuaternary)
 
 $border-color: $gray-color !default; // Default border color
-$border-color-dark: darken($border-color, 10%) !default;
-$border-color-light: lighten($border-color, 10%) !default;
+$border-color-dark: color.adjust($border-color, $lightness: -10%) !default;
+$border-color-light: color.adjust($border-color, $lightness: 10%) !default;
 
 $bg-color-light: $light-color !default; // Light background
 $bg-color: #F3F2F1 !default;           // Default background (e.g., NeutralLighterAlt or NeutralLighter)
-$bg-color-dark: darken($bg-color, 3%) !default;
+$bg-color-dark: color.adjust($bg-color, $lightness: -3%) !default;
 
 // Control colors (can be kept or adjusted to Fluent)
 $success-color: #107C10 !default; // Fluent Green for success (e.g., PaletteGreen)
@@ -44,8 +46,8 @@ $body-bg: $bg-color-light !default;
 $body-font-color: $dark-color !default;
 
 $link-color: $primary-color !default;
-$link-color-dark: darken($link-color, 10%) !default;
-$link-color-light: lighten($link-color, 10%) !default;
+$link-color-dark: color.adjust($link-color, $lightness: -10%) !default;
+$link-color-light: color.adjust($link-color, $lightness: 10%) !default;
 
 // Fonts - Fluent UI Type Ramp
 $base-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif !default;
