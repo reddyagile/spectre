@@ -1,59 +1,24 @@
 const gulp = require("gulp");
-const { parallel } = require("gulp");
-const sass = require('gulp-sass');
-const cleancss = require('gulp-clean-css');
-const csscomb = require('gulp-csscomb');
-const rename = require('gulp-rename');
 const pug = require('gulp-pug');
-const autoprefixer = require('gulp-autoprefixer');
+// const { parallel } = require("gulp"); // Not needed if only docs_pug and watch_pug are left and run sequentially
 
-function build() {
-  return gulp
-    .src('./src/*.scss')
-    .pipe(sass({outputStyle: 'compact', precision: 10})
-      .on('error', sass.logError)
-    )
-    .pipe(autoprefixer())
-    .pipe(csscomb())
-    .pipe(gulp.dest('./dist'))
-    .pipe(cleancss())
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('./dist'));
-}
-
-function docs_css() {
-  return gulp
-    .src(['./src/*.scss', './docs/src/scss/*.scss'])
-    .pipe(sass({outputStyle: 'compact', precision: 10})
-      .on('error', sass.logError)
-    )
-    .pipe(autoprefixer())
-    .pipe(csscomb())
-    .pipe(gulp.dest('./docs/dist'))
-    .pipe(cleancss())
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('./docs/dist'));
-}
-
+// Task to compile Pug files for documentation
 function docs_pug() {
   return gulp
-    .src('docs/src/**/!(_)*.pug')
+    .src('docs/src/**/!(_)*.pug') // Process all .pug files except those starting with _
     .pipe(pug({
-      pretty: true
+      pretty: true // Output readable HTML
     }))
-    .pipe(gulp.dest('./docs/'));
+    .pipe(gulp.dest('./docs/')); // Output to docs root (maintaining folder structure from src)
 }
+exports.docs_pug = docs_pug;
 
-function watch() {
-  gulp.watch('./**/*.scss', parallel(build, docs_css));
-  gulp.watch('./**/*.pug', docs_pug);
+// Optional: a watch task just for Pug
+function watch_pug() {
+  // Watch all .pug files in docs/src and its subdirectories
+  gulp.watch('./docs/src/**/*.pug', docs_pug);
 }
+exports.watch_pug = watch_pug;
 
-exports.watch = watch;
-exports.build = build;
-exports.docs = parallel(docs_pug, docs_css);
-exports.default = build;
+// Set docs_pug as the default task if Gulp is run without arguments
+exports.default = docs_pug;

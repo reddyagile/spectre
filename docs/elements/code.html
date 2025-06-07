@@ -16,7 +16,8 @@
     <meta name="twitter:creator" content="@picturepan2">
     <link rel="shortcut icon" href="../img/favicons/favicon.ico">
     <link rel="icon" href="../img/favicons/favicon.png">
-    <link rel="stylesheet" href="../dist/spectre.min.css">
+    <!-- Main theme stylesheet - ID for theme switcher-->
+    <link id="theme-stylesheet" rel="stylesheet" href="../dist/themes/spectre.min.css">
     <link rel="stylesheet" href="../dist/spectre-icons.min.css">
     <link rel="stylesheet" href="../dist/spectre-exp.min.css">
     <link rel="stylesheet" href="../dist/docs.min.css">
@@ -26,7 +27,15 @@
     <div class="docs-container off-canvas off-canvas-sidebar-show">
       <div class="docs-navbar"><a class="off-canvas-toggle btn btn-link btn-action" href="#sidebar"><i class="icon icon-menu"></i></a>
         <div class="btns d-flex">
-          <input class="docs-search form-input" type="text" placeholder="Search Docs"><a class="btn ml-1" href="https://www.paypal.me/picturepan2" target="_blank">PayPal</a><a class="btn btn-primary ml-1" href="https://github.com/picturepan2/spectre" target="_blank">GitHub</a>
+          <div class="form-group ml-1">
+            <select class="form-select" id="theme-switcher" style="width: auto; height: auto; padding-top: .2rem; padding-bottom: .2rem;">
+              <option value="spectre">Spectre (Default)</option>
+              <option value="fluent">Fluent UI</option>
+              <option value="shadcn">ShadCN UI</option>
+            </select>
+          </div>
+          <!-- Added ml-1 to search input-->
+          <input class="docs-search form-input ml-1" type="text" placeholder="Search Docs"><a class="btn ml-1" href="https://www.paypal.me/picturepan2" target="_blank">PayPal</a><a class="btn btn-primary ml-1" href="https://github.com/picturepan2/spectre" target="_blank">GitHub</a>
         </div>
       </div>
       <div class="docs-sidebar off-canvas-sidebar" id="sidebar">
@@ -249,6 +258,8 @@
       debug: true
       }); 
     </script>
+    <!-- Theme switcher script-->
+    <script src="../dist/js/theme-switcher.js" defer></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

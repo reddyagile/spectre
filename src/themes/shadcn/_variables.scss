@@ -1,0 +1,148 @@
+// ShadCN Theme Variables (Neutral - Light Mode)
+@use "sass:color";
+
+// Core variables
+$version: "0.5.9-shadcn"; // Indicate that this is a themed version
+
+// Core features
+$rtl: false !default;
+
+// Core colors - ShadCN UI Palette (Neutral - Light)
+// Using oklch values directly as modern Sass supports them.
+$primary-color: oklch(0.205 0 0) !default;          // --primary (Note: Very dark for a light theme primary, as per docs)
+$primary-foreground-color: oklch(0.985 0 0) !default; // --primary-foreground (Text on primary elements)
+
+// For Spectre's structure, we'll derive dark/light variants.
+// These might need adjustment if the base primary is too dark/light to scale well.
+$primary-color-dark: color.adjust($primary-color, $lightness: -10%) !default;
+$primary-color-light: color.adjust($primary-color, $lightness: 10%) !default;
+
+$secondary-color: oklch(0.97 0 0) !default;         // --secondary
+$secondary-foreground-color: oklch(0.205 0 0) !default; // --secondary-foreground
+
+$secondary-color-dark: color.adjust($secondary-color, $lightness: -5%) !default;
+$secondary-color-light: color.adjust($secondary-color, $lightness: 2%) !default; // Careful with lightening already light colors
+
+// Gray colors
+$dark-color: oklch(0.145 0 0) !default;    // --foreground (General text)
+$light-color: oklch(1 0 0) !default;       // --background (General background - white)
+
+$gray-color: oklch(0.97 0 0) !default;      // --muted
+$muted-foreground-color: oklch(0.556 0 0) !default; // --muted-foreground
+
+// Using $gray-color for Spectre's gray scale, can be refined
+$gray-color-dark: color.adjust($gray-color, $lightness: -30%) !default; // Example, may need actual ShadCN grays
+$gray-color-light: color.adjust($gray-color, $lightness: 5%) !default; // Example
+
+$border-color: oklch(0.922 0 0) !default;  // --border
+$border-color-dark: color.adjust($border-color, $lightness: -10%) !default;
+$border-color-light: color.adjust($border-color, $lightness: 5%) !default; // Adjusted lightening
+
+$bg-color-light: $light-color !default;      // Matches --background
+$bg-color: oklch(0.97 0 0) !default;         // Similar to --muted or --card
+$bg-color-dark: color.adjust($bg-color, $lightness: -3%) !default;
+
+// Control colors
+$success-color: oklch(0.63 0.2 135) !default;   // A generic green in OKLCH, ShadCN might not define a direct --success
+$warning-color: oklch(0.8 0.2 75) !default;    // A generic yellow in OKLCH
+$error-color: oklch(0.577 0.245 27.325) !default; // --destructive
+
+// Other colors
+$code-color: $error-color !default; // Using destructive for code for now
+$highlight-color: oklch(0.95 0.1 90) !default; // A light yellow for highlights
+
+$body-bg: $light-color !default; // --background
+$body-font-color: $dark-color !default; // --foreground
+
+$link-color: $primary-color !default; // Using ShadCN's --primary
+$link-color-dark: color.adjust($link-color, $lightness: -10%) !default;
+$link-color-light: color.adjust($link-color, $lightness: 10%) !default;
+
+// Fonts - Common modern font stacks
+$base-font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$mono-font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$fallback-font-family: sans-serif !default; // Simplified fallback
+
+$cjk-zh-hans-font-family: $base-font-family, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", $fallback-font-family !default;
+$cjk-zh-hant-font-family: $base-font-family, "PingFang TC", "Hiragino Sans CNS", "Microsoft JhengHei", $fallback-font-family !default;
+$cjk-jp-font-family: $base-font-family, "Hiragino Sans", "Hiragino Kaku Gothic Pro", "Yu Gothic", YuGothic, Meiryo, $fallback-font-family !default;
+$cjk-ko-font-family: $base-font-family, "Malgun Gothic", $fallback-font-family !default;
+$body-font-family: $base-font-family, $fallback-font-family !default;
+
+// Unit sizes (keeping similar to Spectre for now, for base component compatibility)
+$unit-o: .05rem !default; // 1px @ 20px base
+$unit-h: .1rem !default;  // 2px
+$unit-1: .2rem !default;  // 4px
+$unit-2: .4rem !default;  // 8px
+$unit-3: .6rem !default;  // 12px
+$unit-4: .8rem !default;  // 16px
+$unit-5: 1rem !default;   // 20px (used for border-radius to match 0.5rem on 20px base)
+$unit-6: 1.2rem !default; // 24px
+$unit-7: 1.4rem !default; // 28px
+$unit-8: 1.6rem !default; // 32px
+$unit-9: 1.8rem !default; // 36px
+$unit-10: 2rem !default;  // 40px
+$unit-12: 2.4rem !default; // 48px
+$unit-16: 3.2rem !default; // 64px
+
+// Font sizes
+$html-font-size: 20px !default; // Base for rem calculations
+$html-line-height: 1.5 !default;
+$font-size: .7rem !default; // 14px. ShadCN is often 14px based (0.875rem on 16px base)
+$font-size-sm: .6rem !default; // 12px
+$font-size-lg: .9rem !default; // 18px
+$line-height: 1.2rem !default; // ~24px. Adjust as needed. ShadCN uses unitless line-heights often.
+
+// Sizes
+$layout-spacing: $unit-2 !default; // 8px
+$layout-spacing-sm: $unit-1 !default; // 4px
+$layout-spacing-lg: $unit-4 !default; // 16px
+
+$border-radius: 0.5rem !default; // ShadCN's --radius is 0.5rem.
+$border-width: $unit-o !default; // 1px
+$border-width-lg: $unit-h !default; // 2px
+
+// Control sizes - kept similar to Spectre's defaults for now
+$control-size: $unit-9 !default;      // 1.8rem = 36px. ShadCN inputs are often 2.5rem (40px) with 16px base.
+$control-size-sm: $unit-7 !default;   // 1.4rem = 28px
+$control-size-lg: $unit-10 !default;  // 2rem = 40px
+
+$control-padding-x: $unit-2 !default; // .4rem = 8px. ShadCN often uses more padding (e.g. 0.75rem / 12px)
+$control-padding-x-sm: $unit-2 * .75 !default;
+$control-padding-x-lg: $unit-2 * 1.5 !default;
+
+$control-padding-y: calc(($control-size - $line-height) / 2 - $border-width) !default;
+$control-padding-y-sm: calc(($control-size-sm - $line-height) / 2 - $border-width) !default;
+$control-padding-y-lg: calc(($control-size-lg - $line-height) / 2 - $border-width) !default;
+$control-icon-size: .8rem !default;
+
+// Control widths
+$control-width-xs: 180px !default;
+$control-width-sm: 320px !default;
+$control-width-md: 640px !default;
+$control-width-lg: 960px !default;
+$control-width-xl: 1280px !default;
+
+// Responsive breakpoints
+$size-xs: 480px !default;
+$size-sm: 600px !default;
+$size-md: 840px !default;
+$size-lg: 960px !default;
+$size-xl: 1280px !default;
+$size-2x: 1440px !default;
+
+$responsive-breakpoint: $size-xs !default;
+
+// Z-index
+$zindex-0: 1 !default;
+$zindex-1: 100 !default;
+$zindex-2: 200 !default;
+$zindex-3: 300 !default;
+$zindex-4: 400 !default;
+
+// Card specific variables from ShadCN (example)
+// These are not part of base Spectre but show how ShadCN variables could be mapped
+// $card-background: oklch(1 0 0); // --card (usually same as --background for light theme)
+// $card-foreground: oklch(0.145 0 0); // --card-foreground (usually same as --foreground)
+// $card-border-radius: $border-radius; // Use the global radius
+// $card-box-shadow: none; // ShadCN cards often have subtle or no shadow by default, relying on borders

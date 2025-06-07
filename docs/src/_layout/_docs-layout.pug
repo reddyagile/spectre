@@ -7,7 +7,14 @@ block content
       a.off-canvas-toggle.btn.btn-link.btn-action(href='#sidebar')
         i.icon.icon-menu
       .btns.d-flex
-        input.docs-search.form-input(type="text" placeholder="Search Docs")
+        //- Theme Switcher Dropdown
+        .form-group.ml-1
+          select.form-select#theme-switcher(style="width: auto; height: auto; padding-top: .2rem; padding-bottom: .2rem;")
+            option(value="spectre") Spectre (Default)
+            option(value="fluent") Fluent UI
+            option(value="shadcn") ShadCN UI
+        // Added ml-1 to search input
+        input.docs-search.form-input.ml-1(type="text" placeholder="Search Docs")
         a.btn.ml-1(href='https://www.paypal.me/picturepan2' target='_blank') PayPal
         a.btn.btn-primary.ml-1(href='https://github.com/picturepan2/spectre' target='_blank') GitHub
 

@@ -1,27 +1,26 @@
-// Background color utility mixin
-@mixin bg-color-variant($name: ".bg-primary", $color: $primary-color) {
-  #{$name} {
-    background: $color !important;
+@use "sass:color"; // Still needed for text-color-variant
 
-    @if (lightness($color) < 60) {
-      color: $light-color;
-    }
+// Background color utility mixin - Corrected for selector usage
+@mixin bg-color-variant($name, $color-value) { // $name is the selector, $color-value is the background
+  #{$name} {
+    background-color: $color-value !important;
+    color: #000 !important; // Fixed text color for testing, to be replaced by contrast logic
   }
 }
 
 // Text color utility mixin
-@mixin text-color-variant($name: ".text-primary", $color: $primary-color) {
+@mixin text-color-variant($name: ".text-primary", $color-value: $primary-color) {
   #{$name} {
-    color: $color !important;
+    color: $color-value !important;
   }
 
   a#{$name} {
     &:focus,
     &:hover {
-      color: darken($color, 5%);
+      color: color.adjust($color-value, $lightness: -5%);
     }
     &:visited {
-      color: lighten($color, 5%);
+      color: color.adjust($color-value, $lightness: 5%);
     }
   }
 }

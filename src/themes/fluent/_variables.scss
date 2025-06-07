@@ -1,0 +1,133 @@
+@use "sass:color";
+
+// Fluent Theme Variables
+
+// Core variables
+$version: "0.5.9-fluent"; // Indicate that this is a themed version
+
+// Core features
+$rtl: false !default;
+
+// Core colors - Fluent UI Palette
+$primary-color: #0078D4 !default; // Fluent Blue
+$primary-color-dark: color.adjust($primary-color, $lightness: -10%) !default; // Darker shade for hover/active
+$primary-color-light: color.adjust($primary-color, $lightness: 10%) !default; // Lighter shade
+
+$secondary-color: #EFF6FC !default; // Light blue, often used for backgrounds or secondary elements
+$secondary-color-dark: color.adjust($secondary-color, $lightness: -5%) !default;
+$secondary-color-light: color.adjust($secondary-color, $lightness: 2%) !default; // Be cautious with lightening already light colors
+
+// Gray colors - Fluent Neutral Palette
+$dark-color: #201F1E !default;   // Near black for text (e.g., NeutralBlack)
+$light-color: #FFFFFF !default;  // White (e.g., NeutralWhite)
+
+$gray-color-dark: #605E5C !default; // Darker gray for secondary text (e.g., NeutralSecondary)
+$gray-color: #A19F9D !default;       // Mid gray for borders, disabled states (e.g., NeutralTertiary)
+$gray-color-light: #C8C6C4 !default; // Lighter gray (e.g., NeutralQuaternary)
+
+$border-color: $gray-color !default; // Default border color
+$border-color-dark: color.adjust($border-color, $lightness: -10%) !default;
+$border-color-light: color.adjust($border-color, $lightness: 10%) !default;
+
+$bg-color-light: $light-color !default; // Light background
+$bg-color: #F3F2F1 !default;           // Default background (e.g., NeutralLighterAlt or NeutralLighter)
+$bg-color-dark: color.adjust($bg-color, $lightness: -3%) !default;
+
+// Control colors (can be kept or adjusted to Fluent)
+$success-color: #107C10 !default; // Fluent Green for success (e.g., PaletteGreen)
+$warning-color: #FFB900 !default; // Fluent Yellow for warning (e.g., PaletteYellow)
+$error-color: #D83B01 !default;   // Fluent Red for error (e.g., PaletteRed)
+
+// Other colors
+$code-color: #D83B01 !default; // Using error color for code, can be changed
+$highlight-color: #FFF1A0 !default; // Light yellow for highlights
+
+$body-bg: $bg-color-light !default;
+$body-font-color: $dark-color !default;
+
+$link-color: $primary-color !default;
+$link-color-dark: color.adjust($link-color, $lightness: -10%) !default;
+$link-color-light: color.adjust($link-color, $lightness: 10%) !default;
+
+// Fonts - Fluent UI Type Ramp
+$base-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif !default;
+$mono-font-family: Consolas, "Courier New", monospace !default; // Common mono font for Windows
+$fallback-font-family: "Helvetica Neue", Arial, sans-serif !default; // Fallback
+// CJK fonts can remain similar or be adjusted if specific Fluent CJK guidance is found
+$cjk-zh-hans-font-family: $base-font-family, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", $fallback-font-family !default;
+$cjk-zh-hant-font-family: $base-font-family, "PingFang TC", "Hiragino Sans CNS", "Microsoft JhengHei", $fallback-font-family !default;
+$cjk-jp-font-family: $base-font-family, "Hiragino Sans", "Hiragino Kaku Gothic Pro", "Yu Gothic", YuGothic, Meiryo, $fallback-font-family !default;
+$cjk-ko-font-family: $base-font-family, "Malgun Gothic", $fallback-font-family !default;
+$body-font-family: $base-font-family, $fallback-font-family !default;
+
+// Unit sizes (keeping similar to Spectre for now, can be adjusted to 4px/8px grid if needed)
+$unit-o: .05rem !default; // 1px if base is 20px
+$unit-h: .1rem !default;  // 2px
+$unit-1: .2rem !default;  // 4px
+$unit-2: .4rem !default;  // 8px
+$unit-3: .6rem !default;  // 12px
+$unit-4: .8rem !default;  // 16px
+$unit-5: 1rem !default;   // 20px
+$unit-6: 1.2rem !default; // 24px
+$unit-7: 1.4rem !default; // 28px
+$unit-8: 1.6rem !default; // 32px
+$unit-9: 1.8rem !default; // 36px
+$unit-10: 2rem !default;  // 40px
+$unit-12: 2.4rem !default; // 48px
+$unit-16: 3.2rem !default; // 64px
+
+// Font sizes (keeping similar to Spectre for now)
+$html-font-size: 20px !default; // Base for rem calculations
+$html-line-height: 1.5 !default;
+$font-size: .7rem !default; // 14px - Fluent default body text
+$font-size-sm: .6rem !default; // 12px - Fluent caption
+$font-size-lg: .9rem !default; // 18px - Can be adjusted to Fluent type ramp
+$line-height: 1.1rem !default; // 22px, adjust based on font-size for good leading
+
+// Sizes
+$layout-spacing: $unit-2 !default; // 8px
+$layout-spacing-sm: $unit-1 !default; // 4px
+$layout-spacing-lg: $unit-4 !default; // 16px
+
+$border-radius: $unit-1 !default; // 4px, common Fluent radius
+$border-width: $unit-o !default; // 1px
+$border-width-lg: $unit-h !default; // 2px
+
+$control-size: $unit-8 !default; // 32px, common Fluent control height
+$control-size-sm: $unit-7 !default; // 28px
+$control-size-lg: $unit-10 !default; // 40px
+
+$control-padding-x: $unit-3 !default; // 12px, Fluent text field padding
+$control-padding-x-sm: $unit-2 !default; // 8px
+$control-padding-x-lg: $unit-4 !default; // 16px
+
+// Recalculate y-padding based on new control sizes and line-height if they change significantly
+// For now, using existing calc logic with potentially updated Fluent metrics
+$control-padding-y: calc(($control-size - $line-height) / 2 - $border-width) !default;
+$control-padding-y-sm: calc(($control-size-sm - $line-height) / 2 - $border-width) !default;
+$control-padding-y-lg: calc(($control-size-lg - $line-height) / 2 - $border-width) !default;
+$control-icon-size: .8rem !default; // 16px icon size
+
+// Control widths (can be kept as is or adjusted)
+$control-width-xs: 180px !default;
+$control-width-sm: 320px !default;
+$control-width-md: 640px !default;
+$control-width-lg: 960px !default;
+$control-width-xl: 1280px !default;
+
+// Responsive breakpoints (can be kept as is or adjusted to Fluent's recommendations if any)
+$size-xs: 480px !default;
+$size-sm: 600px !default;
+$size-md: 840px !default;
+$size-lg: 960px !default;
+$size-xl: 1280px !default;
+$size-2x: 1440px !default;
+
+$responsive-breakpoint: $size-xs !default;
+
+// Z-index (generally keep as is unless specific Fluent layering guidance is found)
+$zindex-0: 1 !default;
+$zindex-1: 100 !default;
+$zindex-2: 200 !default;
+$zindex-3: 300 !default;
+$zindex-4: 400 !default;
